@@ -70,6 +70,24 @@
                         </div>
                 </div>
             {/if}
+
+            {if $least_likely_followers}
+              <div class="clearfix section">
+                <h2>This Week's Most Discerning Followers</h2>
+                <div class="clearfix article" style="padding-top : 0px;">
+                {foreach from=$least_likely_followers key=uid item=u name=foo}
+                  <div class="avatar-container" style="float:left;margin:7px;">
+                    <a href="https://twitter.com/intent/user?user_id={$u.user_id}" title="{$u.user_name} has {$u.follower_count|number_format} followers and {$u.friend_count|number_format} friends"><img src="{$u.avatar}" class="avatar2"/><img src="{$site_root_path}plugins/{$u.network}/assets/img/favicon.png" class="service-icon2"/></a>
+                  </div>
+                {/foreach}
+                <br /><br /><br />    
+                </div>
+                <div class="clearfix view-all">
+                    <a href="{$site_root_path}?v=followers-leastlikely&u={$instance->network_username}&n={$instance->network}">More...</a>
+                </div>
+                </div>
+            {/if}
+
             {if $click_stats_data}
             <div class="section">
                     <h2>Clickthrough Rates</h2>
@@ -146,23 +164,6 @@
                   {/if}
                 </div>
 
-            {/if}
-
-            {if $least_likely_followers}
-              <div class="clearfix section">
-                <h2>This Week's Most Discerning Followers</h2>
-                <div class="clearfix article" style="padding-top : 0px;">
-                {foreach from=$least_likely_followers key=uid item=u name=foo}
-                  <div class="avatar-container" style="float:left;margin:7px;">
-                    <a href="https://twitter.com/intent/user?user_id={$u.user_id}" title="{$u.user_name} has {$u.follower_count|number_format} followers and {$u.friend_count|number_format} friends"><img src="{$u.avatar}" class="avatar2"/><img src="{$site_root_path}plugins/{$u.network}/assets/img/favicon.png" class="service-icon2"/></a>
-                  </div>
-                {/foreach}
-                <br /><br /><br />    
-                </div>
-                <div class="clearfix view-all">
-                    <a href="{$site_root_path}?v=followers-leastlikely&u={$instance->network_username}&n={$instance->network}">More...</a>
-                </div>
-                </div>
             {/if}
 
             {if $most_retweeted_1wk}
@@ -264,7 +265,7 @@
                           width: 650,
                           height: 250,
                           chartArea:{left:300,height:"80%"},
-                          legend: 'bottom',
+                          legend: 'none',
                           hAxis: {
                             textStyle: { color: '#fff', fontSize: 1 }
                           },
