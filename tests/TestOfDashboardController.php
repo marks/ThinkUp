@@ -460,7 +460,7 @@ class TestOfDashboardController extends ThinkUpUnitTestCase {
         array('post_text'=>'Black Mirror punched me in the gut this weekend. Highly recommended. http://t.co/AnczD4Jc '.
         'Thx @annaleen  & @fraying',
         'click_count' => 50),
-        array('post_text'=>'@saenz only <span class="googid">+Sprint</span> http://t.co/cxZTmWhk',
+        array('post_text'=>'@saenz a geeky uncle&#39;s only <span class="googid">+Sprint</span> http://t.co/cxZTmWhk',
         'click_count' => 150),
         array('post_text'=>'I\'ll admit Glee made me cry last night. Then it made me cringe. http://t.co/lgjaJWcW ',
         'click_count' => 23),
@@ -480,7 +480,8 @@ class TestOfDashboardController extends ThinkUpUnitTestCase {
         'Black Mirror punched me in the gut this weekend. Highly recommended. http://t.co/AnczD4Jc Thx @annal...');
         $this->assertEqual($visualization_object->rows[0]->c[1]->v, 50);
 
-        $this->assertEqual($visualization_object->rows[1]->c[0]->v, '@saenz only +Sprint http://t.co/cxZTmWhk...');
+        $this->assertEqual($visualization_object->rows[1]->c[0]->v,
+        "@saenz a geeky uncle's only +Sprint http://t.co/cxZTmWhk...");
         $this->assertEqual($visualization_object->rows[1]->c[1]->v, 150);
 
         $this->assertEqual($visualization_object->rows[2]->c[0]->v,

@@ -359,7 +359,7 @@ class DashboardController extends ThinkUpController {
         );
         $result_set = array();
         foreach ($click_stats as $link_stat) {
-            $post_text_label = htmlspecialchars_decode(strip_tags($link_stat['post_text'], ENT_QUOTES));
+            $post_text_label = htmlspecialchars_decode(strip_tags($link_stat['post_text']), ENT_QUOTES);
             $result_set[] = array('c' => array(
             array('v' => substr($post_text_label, 0, 100) . '...'),
             array('v' => intval($link_stat['click_count'])),
