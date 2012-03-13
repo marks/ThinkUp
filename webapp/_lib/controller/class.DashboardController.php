@@ -314,7 +314,7 @@ class DashboardController extends ThinkUpController {
             } elseif (isset($post->link->url) && $post->link->url != "") {
                 $post_text_label = str_replace('|','', $post->link->url);
             } else {
-                $post_text_label = date("M j", date_timestamp_get(date_create($post->pub_date)));
+                $post_text_label = date("M j",  date_format (date_create($post->pub_date), 'U' ));
             }
 
             $result_set[] = array('c' => array(
