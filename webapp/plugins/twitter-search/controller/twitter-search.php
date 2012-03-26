@@ -1,8 +1,8 @@
 <?php
 /*
- Plugin Name: 
+ Plugin Name: Twitter Search
  Plugin URI: 
- Description: 
+ Description: Work in progress.. 
  Class: TwitterSearchPlugin
  Version: 0.01
  Icon: assets/img/plugin_icon.png
